@@ -25,7 +25,7 @@ namespace Taxually.TechnicalTest.Services
 
             if (validation.IsValid)
             {
-                _strategies.TryGetValue(request.Country, out var strategy);
+                _strategies.TryGetValue(request.Country.ToUpper(), out var strategy);
 
                 if (strategy != null)
                 {

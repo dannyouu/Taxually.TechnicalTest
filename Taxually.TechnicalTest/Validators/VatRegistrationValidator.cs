@@ -7,7 +7,9 @@ namespace Taxually.TechnicalTest.Validators
     {
         public VatRegistrationValidator() 
         {
-            RuleFor(x => x.Country).NotEmpty().WithMessage("Country is required."); ;
+            RuleFor(x => x.Country).NotEmpty().WithMessage("Country is required.");
+            RuleFor(x => x.CompanyName).NotEmpty().WithMessage("Company Name is required.");
+            RuleFor(x => x.CompanyId).NotEmpty().WithMessage("Company Id is required.");
         }
     }
 }
