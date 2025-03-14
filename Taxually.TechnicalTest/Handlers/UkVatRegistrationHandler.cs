@@ -1,4 +1,5 @@
-﻿using Taxually.TechnicalTest.Interface;
+﻿using Taxually.TechnicalTest.Exceptions.Types;
+using Taxually.TechnicalTest.Interface;
 using Taxually.TechnicalTest.Models;
 
 namespace Taxually.TechnicalTest.Handlers
@@ -10,7 +11,15 @@ namespace Taxually.TechnicalTest.Handlers
 
         public async Task RegisterAsync(VatRegistrationRequest request)
         {
-            await _httpClient.PostAsync("https://api.uktax.gov.uk", request);
+            try
+            {
+                await _httpClient.PostAsync("https://api.uktax.gov.uk", request);
+            }
+            catch (Exception ex)
+            {
+
+                throw new UkVatCustomException(ex.Message, System.Net.HttpStatusCode.NotFound);
+            }
         }
     }
 }
