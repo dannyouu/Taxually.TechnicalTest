@@ -1,5 +1,6 @@
 using FluentValidation;
 using System;
+using Taxually.TechnicalTest.Exceptions.Handler;
 using Taxually.TechnicalTest.Handlers;
 using Taxually.TechnicalTest.Interface;
 using Taxually.TechnicalTest.Models;
@@ -35,5 +36,6 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+app.UseMiddleware<ExceptionHandler>();
 
 app.Run();
