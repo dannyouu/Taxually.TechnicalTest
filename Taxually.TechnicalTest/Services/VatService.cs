@@ -30,8 +30,8 @@ namespace Taxually.TechnicalTest.Services
                 if (strategy != null)
                 {
                     await strategy.RegisterAsync(request);
+                    return true;
                 }
-                return true;
             }
             else
             {
